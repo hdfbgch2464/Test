@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/Netty-client/Netty-client.iml" filepath="$PROJECT_DIR$/Netty-client/Netty-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/Netty-service/Netty-service.iml" filepath="$PROJECT_DIR$/Netty-service/Netty-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Test.iml" filepath="$PROJECT_DIR$/.idea/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/User/User.iml" filepath="$PROJECT_DIR$/User/User.iml" />
     </modules>
   </component>
 </project>

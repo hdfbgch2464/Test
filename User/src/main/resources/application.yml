@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: service #服务名
+  profiles:
+    active: default # 配置文件的版本
+  datasource: # 数据库配置
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://101.43.115.229:3306/Test?useSSL=false&testOnBorrow=true&testWhileIdle=true
+#  redis: # redis配置
+#    host: localhost
+#    password: 123456
+#    port: 8397
+#    jedis:
+#      pool:
+#        max-active: 8
+#        max-idle: 8
+#        min-idle: 0
+#  default-property-inclusion: non_null
+#  serialization:
+#    write_dates_as_timestamps: true
+#  cache:
+#    redis:
+#      time-to-live: 86400s
