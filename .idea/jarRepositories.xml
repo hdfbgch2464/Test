@@ -26,5 +26,10 @@
       <option name="name" value="maven-central" />
       <option name="url" value="https://mirrors.huaweicloud.com/repository/maven/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://nexus.leyantech.com/repository/maven-public" />
+    </remote-repository>
   </component>
 </project>

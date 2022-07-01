@@ -1,5 +1,6 @@
 package com.test.user.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.test.user.entity.Permission;
 import com.test.user.mapper.PermissionMapper;
 import com.test.user.service.IPermissionService;
@@ -17,4 +18,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements IPermissionService {
 
+
+  private PermissionMapper permissionMapper;
+
+  private void getPermissions(){
+    final QueryWrapper<Permission> wrapper = new QueryWrapper<Permission>();
+    wrapper.getSqlSelect();
+  }
 }

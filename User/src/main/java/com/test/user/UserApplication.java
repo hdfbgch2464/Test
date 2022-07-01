@@ -4,9 +4,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 /**
  * @author zhangyuxi, {@literal <zhangyuxi@leyantech.com>}
  * @date 2022-05-25.

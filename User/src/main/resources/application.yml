@@ -9,6 +9,10 @@ spring:
     password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://101.43.115.229:3306/Test?useSSL=false&testOnBorrow=true&testWhileIdle=true
+  thymeleaf:
+    prefix: classpath:/themplates/
+    suffix: .html
+
 #  redis: # redis配置
 #    host: localhost
 #    password: 123456
@@ -24,3 +28,7 @@ spring:
 #  cache:
 #    redis:
 #      time-to-live: 86400s
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
