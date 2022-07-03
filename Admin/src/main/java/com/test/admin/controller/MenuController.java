@@ -20,4 +20,9 @@ public class MenuController {
   public String home() {
     return "home";
   }
+
+  @RequestMapping("/layout")
+  public String layout() {
+    return "layout";
+  }
 }
