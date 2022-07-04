@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>首页</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="/static/layui/style/admin.css" media="all">
+  <script src="/static/js/jquery.min.js"></script>
+  <script src="/static/layui/layui.js"></script>
+  <style>
+      .layuiadmin-card-text {
+          background: #fff;
+      }
+
+      .layuiadmin-card-text .layui-text-top {
+          padding-bottom: 0px;
+      }
+
+      .layui-icon-home, .layui-icon-notice {
+          color: #1E9FFF !important;
+      }
+
+      .layui-icon-app, .layui-icon-list {
+          color: #FF5722 !important;
+      }
+
+      .layui-icon-dollar, .layui-icon-rmb {
+          color: #FFB800 !important;
+      }
+
+      .layui-icon-file-b, .layui-icon-praise {
+          color: #009688 !important;
+      }
+
+      .layui-icon-form, .layui-icon-survey {
+          color: #ff0000 !important;
+      }
+
+      .layui-icon-chart-screen {
+          color: #6647de !important
+      }
+
+      .layui-card-header .layui-icon {
+          line-height: 18px;
+      !important;
+          font-weight: bold
+      }
+  </style>
+</head>
+<body>
+　　
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          <span id="orderName">等待发货订单</span>
+          <span class="layui-badge layui-bg-blue layuiadmin-badge layui-icon">&#xe667;</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+          <p class="layuiadmin-big-font" id="WaitOrderNum"></p>
+          <p>
+            订单金额
+            <span class="layuiadmin-span-color" id="WaitOrderMoney">0<i class="layui-icon">&#xe66c;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          昨日订单
+          <span class="layui-badge layui-bg-cyan layuiadmin-badge layui-icon">&#xe655;</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+          <p class="layuiadmin-big-font" id="countYesterOrderNum"></p>
+          <p>
+            订单金额
+            <span class="layuiadmin-span-color"><span id="countYesterOrderMoney"></span><i
+                class="layui-icon">&#xe6af;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          昨日完成订单
+          <span class="layui-badge layui-bg-green layuiadmin-badge layui-icon">&#xe63c;</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+          <p class="layuiadmin-big-font" id="countYesterOrderedNum"></p>
+          <p>
+            订单金额
+            <span class="layuiadmin-span-color"><span id="countYesterOrderedMoney"></span><i
+                class="layui-icon">&#xe65e;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm6 layui-col-md3">
+      <div class="layui-card">
+        <div class="layui-card-header">
+          已开发票
+          <span class="layui-badge layui-bg-orange layuiadmin-badge layui-icon">&#xe60a;</span>
+        </div>
+        <div class="layui-card-body layuiadmin-card-list">
+          <p class="layuiadmin-big-font"><span id="countInvoiceNum"></span></p>
+          <p>
+            发票金额
+            <span class="layuiadmin-span-color"><span id="countInvoiceMoney"></span><i
+                class="layui-icon">&#xe659;</i></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <fieldset class="layui-elem-field layui-field-title" style="margin-top: 30px;">
+    <legend>常用功能</legend>
+  </fieldset>
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-sm4 layui-col-md3"
+         onclick="window.parent.layui.index.openTabsPage('/mgt/rechargeRecordQuery', '充值记录');">
+      <div class="layuiadmin-card-text">
+        <div class="layui-text-top"><i class="layui-icon layui-icon-home"></i><a href="#">充值记录</a></div>
+      </div>
+    </div>
+    <div class="layui-col-sm4 layui-col-md3"
+         onclick="window.parent.layui.index.openTabsPage('/mgt/organizeManager', '单位查询')">
+      <div class="layuiadmin-card-text">
+        <div class="layui-text-top"><i class="layui-icon layui-icon-app"></i><a href="#">单位查询</a></div>
+      </div>
+    </div>
+    <div class="layui-col-sm4 layui-col-md3"
+         onclick="window.parent.layui.index.openTabsPage('/mgt/advertisingManagementPage', '广告管理')">
+      <div class="layuiadmin-card-text">
+        <div class="layui-text-top"><i class="layui-icon layui-icon-dollar"></i><a href="#">广告管理</a>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm4 layui-col-md3 linkActive"
+         onclick="window.parent.layui.index.openTabsPage('/mgt/endoriInvoice', '待开发票')">
+      <div class="layuiadmin-card-text">
+        <div class="layui-text-top"><i class="layui-icon layui-icon-file-b"></i><a href="#">待开发票</a>
+        </div>
+      </div>
+    </div>
+    <div class="layui-col-sm4 layui-col-md3 linkActive"
+         onclick="window.parent.layui.index.openTabsPage('/mgt/productCheckPage', '商品审核')">
+      <div class="layuiadmin-card-text">
+        <div class="layui-text-top"><i class="layui-icon layui-icon-form"></i><a href="#">商品审核</a></div>
+      </div>
+    </div>
+    <div class="layui-col-sm4 layui-col-md3 linkActive"
+         onclick="window.parent.layui.index.openTabsPage('/mgt/countOrderDataUrl', '报表')">
+      <div class="layuiadmin-card-text">
+        <div class="layui-text-top"><i class="layui-icon layui-icon-chart-screen"></i><a href="#">报表</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  layui.use(['table', 'laydate', 'form', 'jquery', 'layer', 'element'], function () {
+    var table = layui.table,
+        laydate = layui.laydate,
+        layer = layui.layer,
+        $ = layui.jquery,
+        form = layui.form,
+        element = layui.element;
+    var WaitOrderNum = null;
+    //统计待发货订单数
+    /*countWaitOrder();
+
+    function countWaitOrder() {
+        $.ajax({
+            type: "GET",
+            url: "/mgt/countWaitOrder",
+            data: {},
+            success: function (data) {
+                $("#WaitOrderNum").html(data.countAll);
+                $("#WaitOrderMoney").html(data.sumTotal)
+            }
+        });
+    }
+
+    //统计昨日订单数量 总价
+    countYesterOrder();
+
+    function countYesterOrder() {
+        $.ajax({
+            type: "GET",
+            url: "/mgt/countYesterOrder",
+            data: {},
+            success: function (data) {
+                $("#countYesterOrderNum").html(data.countAll);
+                $("#countYesterOrderMoney").html(data.sumTotal)
+                console.log(data)
+            }
+        });
+    }
+
+    //统计昨日完成 订单数 总价
+    countYesterOrdered();
+
+    function countYesterOrdered() {
+        $.ajax({
+            type: "GET",
+            url: "/mgt/countYesterOrdered",
+            data: {},
+            success: function (data) {
+                $("#countYesterOrderedNum").html(data.countAll);
+                $("#countYesterOrderedMoney").html(data.sumTotal)
+                console.log(data)
+            }
+        });
+    }
+
+    //统计待审核发票信息
+    countWaitInvoice();
+    function countWaitInvoice() {
+        $.ajax({
+            type: "GET",
+            url: "/mgt/countWaitInvoice",
+            data: {},
+            success: function (data) {
+                $("#countInvoiceNum").html(data.countAll);
+                $("#countInvoiceMoney").html(data.sumTotal)
+            }
+        });
+    }*/
+    // homeMapAll();
+
+    function homeMapAll() {
+      $.ajax({
+        type: "GET",
+        url: "/mgt/homeMapAll",
+        success: function (data) {
+          $("#WaitOrderNum").html(data.countWaitOrder.countAll);
+          $("#WaitOrderMoney").html(data.countWaitOrder.sumTotal);
+
+          $("#countYesterOrderNum").html(data.countOrderYester.countAll);
+          $("#countYesterOrderMoney").html(data.countOrderYester.sumTotal);
+
+          $("#countYesterOrderedNum").html(data.countYesterOrdered.countAll);
+          $("#countYesterOrderedMoney").html(data.countYesterOrdered.sumTotal);
+
+          $("#countInvoiceNum").html(data.countInvoicedAll.countAll);
+          $("#countInvoiceMoney").html(data.countInvoicedAll.sumTotal);
+
+          $("#orderName").html(data.countWaitOrderName);
+
+        }
+      });
+    }
+
+  })
+
+</script>
+
+</body>
+</html>

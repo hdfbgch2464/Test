@@ -13,6 +13,7 @@
     <module>Netty-client</module>
     <module>Netty-service</module>
     <module>User</module>
+    <module>Admin</module>
   </modules>
 
   <parent>
