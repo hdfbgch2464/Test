@@ -10,9 +10,11 @@
         <module name="Netty-client" />
         <module name="Netty-service" />
         <module name="User" />
+        <module name="Admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Admin" target="1.8" />
       <module name="Netty-client" target="1.8" />
       <module name="Netty-service" target="1.8" />
       <module name="Test" target="1.8" />
@@ -21,6 +23,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Admin" options="-parameters" />
       <module name="Netty-client" options="-parameters" />
       <module name="Netty-service" options="-parameters" />
       <module name="User" options="-parameters" />

@@ -1,75 +1,84 @@
 <div class="layui-side-scroll" xmlns:th="http://www.w3.org/1999/xhtml">
-    <div class="layui-logo" lay-href="home/console.html">
-        <span th:text="1111"></span>
-    </div>
+  <div class="layui-logo" lay-href="home/console.html">
+    <span th:text="1111"></span>
+  </div>
 
-    <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
-        lay-filter="layadmin-system-side-menu">
+  <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu"
+      lay-filter="layadmin-system-side-menu">
 
-            <li data-name="home" class="layui-nav-item">
-                <a href="javascript:;" lay-tips="org管理" lay-direction="4">
-                    <i class="layui-icon layui-icon-component"></i>
-                    <cite>单位管理</cite>
-                </a>
-                <dl class="layui-nav-child ">
+    <li data-name="home" class="layui-nav-item">
+      <a href="javascript:;" lay-tips="客户管理" lay-direction="4">
+        <i class="layui-icon layui-icon-component"></i>
+        <cite>客户管理</cite>
+      </a>
+      <dl class="layui-nav-child ">
+        <dd data-name="console">
+          <a lay-href="/orgManager">org信息管理</a>
+        </dd>
+      </dl>
+    </li>
+    　　
+    <li data-name="home" class="layui-nav-item">
+      <a href="javascript:;" lay-tips="店铺管理" lay-direction="4">
+        <i class="layui-icon layui-icon-user"></i>
+        <cite>店铺管理</cite>
+      </a>
+      <dl class="layui-nav-child">
 
-                        <dd data-name="console">
-                            <a lay-href="/mgt/organizeManager">单位查询</a>
-                        </dd>
-                </dl>
-            </li>
-            　　
-            <li data-name="home" class="layui-nav-item">
-                <a href="javascript:;" lay-tips="用户管理" lay-direction="4">
-                    <i class="layui-icon layui-icon-user"></i>
-                    <cite>用户管理</cite>
-                </a>
-                <dl class="layui-nav-child">
+        <dd data-name="console">
+          <a lay-href="/mgt/user/userManager">店铺管理</a>
+        </dd>
 
-                        <dd data-name="console">
-                            <a lay-href="/mgt/user/userManager">用户查询</a>
-                        </dd>
+        <dd data-name="console">
+          <a lay-href="/mgt/toDepartment">店铺组管理</a>
+        </dd>
+        <dd data-name="console">
+          <a lay-href="/mgt/toDepartment">转移店铺</a>
+        </dd>
+      </dl>
+    </li>
 
-                        <dd data-name="console">
-                            <a lay-href="/mgt/toDepartment">部门管理</a>
-                        </dd>
+    <li data-name="home" class="layui-nav-item">
+      <a href="javascript:;" lay-tips="客服管理" lay-direction="4">
+        <i class="layui-icon layui-icon-senior"></i>
+        <cite>客服管理</cite>
+      </a>
+      <dl class="layui-nav-child">
+        <dd data-name="console">
+          <a lay-href="/mgt/roleManager">客服管理</a>
+        </dd>
+        <dd data-name="console">
+          <a lay-href="/mgt/roleManager">客服组管理</a>
+        </dd>
+      </dl>
+    </li>
+    <li data-name="home" class="layui-nav-item">
+      <a href="javascript:;" lay-tips="支付管理" lay-direction="4">
+        <i class="layui-icon layui-icon-template"></i>
+        <cite>支付管理</cite>
+      </a>
+      <dl class="layui-nav-child">
+        <dd data-name="console">
+          <a lay-href="/mgt/deliverList">支付订单管理</a>
+        </dd>
+        <dd data-name="console">
+          <a lay-href="/mgt/clearing">支付活动管理</a>
+        </dd>
+      </dl>
+    </li>
+    <li data-name="home" class="layui-nav-item">
+      <a href="javascript:;" lay-tips="用户管理" lay-direction="4">
+        <i class="layui-icon layui-icon-template"></i>
+        <cite>用户管理</cite>
+      </a>
+      <dl class="layui-nav-child">
+        <dd data-name="console">
+          <a lay-href="/mgt/deliverList">用户管理</a>
+        </dd>
+      </dl>
+    </li>
 
-                        <dd data-name="console">
-                            <a lay-href="/mgt/user/changePwdPage">修改密码</a>
-                        </dd>
-                                 </dl>
-            </li>
-
-            <li data-name="home" class="layui-nav-item">
-                <a href="javascript:;" lay-tips="角色管理" lay-direction="4">
-                    <i class="layui-icon layui-icon-senior"></i>
-                    <cite>角色管理</cite>
-                </a>
-                <dl class="layui-nav-child">
-                        <dd data-name="console">
-                            <a lay-href="/mgt/roleManager">角色管理</a>
-                        </dd>
-                </dl>
-            </li>
-            <li data-name="home" class="layui-nav-item">
-                <a href="javascript:;" lay-tips="发货单清算" lay-direction="4">
-                    <i class="layui-icon layui-icon-template"></i>
-                    <cite>发货单</cite>
-                </a>
-                <dl class="layui-nav-child">
-                        <dd data-name="console">
-                            <a lay-href="/mgt/deliverList">发货导出</a>
-                        </dd>
-                        <dd data-name="console">
-                            <a lay-href="/mgt/clearing">供货商清算</a>
-                        </dd>
-                        <dd data-name="console">
-                            <a lay-href="/mgt/liquidation">行社清算</a>
-                        </dd>
-                </dl>
-            </li>
-
-    </ul>
+  </ul>
 
 
 </div>

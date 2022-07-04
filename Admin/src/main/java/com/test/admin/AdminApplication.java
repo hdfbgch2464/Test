@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2022-07-02
  */
 @SpringBootApplication
-//@MapperScan("com.test.user.mapper")
+@MapperScan("com.test.admin.mapper")
 public class AdminApplication {
 
   public static void main(String[] args) {

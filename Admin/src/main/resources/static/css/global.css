@@ -1,0 +1,22 @@
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.layui-input-sm {
+    height: 30px;
+    line-height: 30px;
+}
+.layui-form-label-sm{
+    width: 70px;
+}
+.layui-btn-add {
+    position: relative;
+    margin: 7px;
+    padding: 0 8px 0 24px;
+}
+.layui-btn-add .layui-icon {
+    right:31px;
+    margin-top: -9px;
+}
