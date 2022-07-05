@@ -19,6 +19,8 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class Org implements Serializable {
 
+    private Integer id;
+
     private static final long serialVersionUID=1L;
 
     /**

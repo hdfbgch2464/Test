@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="/static/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all">
   <link rel="stylesheet" href="/static/layui/style/admin.css" media="all">
   <link rel="stylesheet" href="/static/css/global.css" media="all">
   <script src="/static/js/jquery.min.js"></script>
@@ -24,6 +24,15 @@
             text-align: left;
             line-height: 38px;
         }
+
+
+
+
+
+
+
+
+
 
 
   </style>
@@ -81,19 +90,28 @@
             </div>
           </form>
           <table class="layui-hide" id="test-table-page" lay-filter="test-table-page"></table>
-
+          <script type="text/html" id="table-toolbar">
+            {{# if(d.id == 1003){ }}
+            <a class="layui-btn layui-btn-xs" lay-event="state">启用</a>
+            {{# }else if(d.id == 1125){ }}
+            <a class="layui-btn layui-btn-xs" lay-event="state">停用</a>
+            {{# } }}
+            <a class="layui-btn layui-btn-xs layui-btn-danger"
+               th:if="${bindBtn}==true" lay-event="unbind">解绑</a>
+            <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="reset">重置密码</a>
+            <a class="layui-btn layui-btn-xs layui-btn-warm" lay-event="detail">详情</a>
+          </script>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<script src="/static/layui/layui.js"></script>
+<script src="/static/layui/layui/layui.js"></script>
 <script>
-    layui.use(['form', 'table','dropdown'], function () {
+    layui.use(['form', 'table'], function () {
         var form = layui.form,
             table = layui.table;
-            dropdown = layui.dropdown;
         table.render({
             elem: '#test-table-page'
             , cellMinWidth: 80
@@ -108,11 +126,44 @@
             , page: true
             , cols: [
              [
-                    {field: 'name', title: 'name', sort: true}
+                    {field: 'id', title: 'id', sort: true}
+                    ,{field: 'name', title: 'name', sort: true}
+                    ,{field: 'tryExpireTime', event: 'setTryExpire', title: '试用期', sort: true}
+                    ,{field: 'activeEndTime', title: '套餐结束时间', sort: true}
+                    , {width: 300, align: 'center', title: '操作', fixed: 'right', toolbar: '#table-toolbar'}
                ]
              ]
         });
-    });
+
+   table.on('tool(test-table-page)', function(obj){
+    var data = obj.data;
+    if(obj.event === 'setTryExpire'){
+      layer.prompt({
+        formType: 2
+        ,title: '修改 ID 为 ['+ data.id +'] 的试用期'
+        ,value: data.sign
+      }, function(value, index){
+        layer.close(index);
+
+        //这里一般是发送修改的Ajax请求
+
+        //同步更新表格和缓存对应的值
+        obj.update({
+          sign: value
+        });
+      });
+    }
+  });
+ });
+
+
+
+
+
+
+
+
+
 
 
 
