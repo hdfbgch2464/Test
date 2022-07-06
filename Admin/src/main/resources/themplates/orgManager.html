@@ -26,15 +26,6 @@
         }
 
 
-
-
-
-
-
-
-
-
-
   </style>
 </head>
 <body>
@@ -92,9 +83,9 @@
           <table class="layui-hide" id="test-table-page" lay-filter="test-table-page"></table>
           <script type="text/html" id="table-toolbar">
             {{# if(d.id == 1003){ }}
-            <a class="layui-btn layui-btn-xs" lay-event="state">启用</a>
+            <a class="layui-btn layui-btn-xs" lay-event="start">启用</a>
             {{# }else if(d.id == 1125){ }}
-            <a class="layui-btn layui-btn-xs" lay-event="state">停用</a>
+            <a class="layui-btn layui-btn-xs" lay-event="stop">停用</a>
             {{# } }}
             <a class="layui-btn layui-btn-xs layui-btn-danger"
                th:if="${bindBtn}==true" lay-event="unbind">解绑</a>
@@ -138,38 +129,18 @@
    table.on('tool(test-table-page)', function(obj){
     var data = obj.data;
     if(obj.event === 'setTryExpire'){
-      layer.prompt({
-        formType: 2
-        ,title: '修改 ID 为 ['+ data.id +'] 的试用期'
-        ,value: data.sign
-      }, function(value, index){
-        layer.close(index);
 
-        //这里一般是发送修改的Ajax请求
-
-        //同步更新表格和缓存对应的值
-        obj.update({
-          sign: value
+        layer.open({
+                type: 2,
+                title: '修改org试用期',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['480px', '70%'],
+                content: '/orgModify?id='+data.id+"&oldTryExpire="+data.tryExpireTime
         });
-      });
     }
   });
  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

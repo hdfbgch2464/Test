@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>试用期修改</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet" href="/static/layui/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="/static/layui/style/admin.css" media="all">
+  <script src="/static/js/jquery.min.js"></script>
+</head>
+<body>
+<div class="layui-fluid">
+  <div class="layui-row layui-col-space15">
+    <div class="layui-col-md12">
+      <div class="layui-card">
+        <div class="layui-card-header">修改试用期</div>
+        <div class="layui-card-body">
+          <div class="layui-form" wid100>
+            <div class="layui-form-item">
+              <label class="layui-form-label">orgId</label>
+              <div class="layui-input-inline">
+                <input type="text" id="orgId" name="orgId"
+                       placeholder="orgId" readonly
+                       class="layui-input" autocomplete="off" th:value="${id}">
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <label class="layui-form-label">老试用期</label>
+              <div class="layui-input-inline">
+                <input type="text" id="oldTryExpire" name="oldTryExpire"
+                       placeholder="老试用期" class="layui-input" readonly
+                       autocomplete="off" th:value="${oldTryExpire}">
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <label class="layui-form-label">新试用期</label>
+              <div class="layui-input-inline">
+                <input type="text" id="newTryExpire" name="newTryExpire"
+                       class="layui-input" th:value="${newTryExpire}">
+              </div>
+            </div>
+            <div class="layui-form-item" onclick="tryExpireModify()">
+              <div class="layui-input-block">
+                <button class="layui-btn">确认保存</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/static/layui/layui/layui.js"></script>
+<script>
+
+    layui.use(['form', 'layedit', 'laydate', 'upload'], function () {
+        var $ = layui.jquery
+            , upload = layui.upload
+            , form = layui.form
+    function tryExpireModify() {
+        var id = $("#id").val();
+        var oldTryExpire = $("#oldTryExpire").val();
+        var newTryExpire = $("#newTryExpire").val();
+
+        if (id == "" || oldTryExpire == "" || newTryExpire == "") {
+            luiAlert("提示", "属性为空")
+            return
+        }
+        $.post("/org/orgModify", {
+            "id": id,
+            "oldTryExpire": oldTryExpire,
+            "newTryExpire": newTryExpire,
+        }, function (data) {
+            var status = data.status;
+            var msg = data.msg;
+            if (status == 200) {
+                layer.open({
+                    title: '提示'
+                    , content: '修改成功'
+                    , yes: function (index, layero) {
+                        var index = parent.layer.getFrameIndex(window.name)
+                        parent.layer.close(index);
+                        parent.window.location.reload();
+                    }
+                })
+            } else {
+                luiAlert("提示", msg)
+            }
+        })
+    }
+    });
+
+
+
+</script>
+</body>
+</html>
